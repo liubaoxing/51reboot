@@ -12,12 +12,16 @@ try:
         else:
             f.close()
             break
-    for k,v in result_dic.items():
-       result.append([k[0],k[1],(k[2],result_dic[k])])
-    for i in range(10):
-        for n in range(len(result)-i-1):
-            if result[n+1][2][1] < result[n][2][1]:
-                result[n],result[n+1] = result[n+1],result[n]
-        print result[-1 - i]
+    def func_sort(arr):
+        return arr[1]
+    for i in sorted(result_dic.items(),key=func_sort)[-10:]:
+        print i
+#    for k,v in result_dic.items():
+#       result.append([k[0],k[1],(k[2],result_dic[k])])
+#    for i in range(10):
+#        for n in range(len(result)-i-1):
+#            if result[n+1][2][1] < result[n][2][1]:
+#                result[n],result[n+1] = result[n+1],result[n]
+#        print result[-1 - i]
 except IOError,e:
     print e

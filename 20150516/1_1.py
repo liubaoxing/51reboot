@@ -12,12 +12,7 @@ try:
         else:
             f.close()
             break
-    for k,v in result_dic.items():
-       result.append([k[0],k[1],(k[2],result_dic[k])])
-    for i in range(10):
-        for n in range(len(result)-i-1):
-            if result[n+1][2][1] < result[n][2][1]:
-                result[n],result[n+1] = result[n+1],result[n]
-        print result[-1 - i]
+    for i in sorted(result_dic.items(),key=lambda arr:arr[1])[:-10:-1]:
+        print i
 except IOError,e:
     print e
